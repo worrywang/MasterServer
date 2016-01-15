@@ -1,0 +1,16 @@
+package com.mars.masterserver.net.decoder;
+
+message MsgRequest{
+    optional string id = 1;
+    optional Content content= 2;
+}
+
+message MsgResponse{
+    optional string id = 1;
+    optional Content content= 2;
+}
+
+message Content{
+    optional string body = 1;
+    optional bytes temp_body = 2;
+}

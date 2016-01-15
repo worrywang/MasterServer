@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/bootstrap/MasterServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/bootstrap/Server/IClientBootstrap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/bootstrap/Server/TCPClientBootstrap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/bootstrap/Server/UDPClientBootstrap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/config/InitConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/config/Settings.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/FixThreadPoolExecutor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/HandlerDispatcher.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/domain/Command.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/domain/GameRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/domain/GameResponse.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/domain/MessageQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/domain/MessageQueueHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/handler/GameHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/handler/InitHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/handler/MainInitHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/core/handler/ServerMsgHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/MainMasterServerIntializer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/MasterServerIntializer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/decoder/FrameUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/decoder/MsgProtocol.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/decoder/MsgProtocol.proto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/handler/MainMasterServerHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/handler/MasterServerHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClientHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClient_TCP.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Byte/ByteClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Byte/ByteClientHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Byte/ByteServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Byte/ByteServerHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/ClientTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/ClientTestHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/ClientTest_Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/UnionType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/UnionType.proto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockClientHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockClientHandler_.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockProtocol.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockProtocol.proto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/Protobuf/WorldClockServerHandler_.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/TestConfig.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

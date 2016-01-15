@@ -1,0 +1,28 @@
+package netty.Protobuf;
+
+message Request {
+  extensions 100 to max;
+  enum Type{
+    LOGIN=0;
+    SERVICE=1;
+  }
+  required Type type=1;
+}
+
+extend Request {
+  optional Login login = 100;
+  optional Service service = 101;
+}
+
+message Login {
+  required string user = 1;
+  required string pswd = 2;
+}
+
+message Service {
+  optional string content = 1;
+}
+
+message Response {
+  optional string result = 1;
+}
