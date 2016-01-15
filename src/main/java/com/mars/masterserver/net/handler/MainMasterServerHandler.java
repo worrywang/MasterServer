@@ -46,32 +46,37 @@ public class MainMasterServerHandler extends SimpleChannelInboundHandler<Object>
 		switch (Settings.currentSerializationType){
 			case PROTOBUF:
 				if(s instanceof MsgProtocol.MsgRequest){
-					String id = ((MsgProtocol.MsgRequest)s).getId();
+					MsgProtocol.Head head = ((MsgProtocol.MsgRequest)s).getHead();
 					MsgProtocol.Content content = ((MsgProtocol.MsgRequest)s).getContent();
-					System.out.println("[content]: id="+id+"; body="+content.getBody());
-					GameRequest gameRequest = new GameRequest(ctx.channel(),((MsgProtocol.MsgRequest)s));
-					//通知
+					System.out.println("[content]: id="+head.getSrcID()+"; body="+content.getMsgList().size());
+
+					GameRequest gameRequest = ProtocolConverMsgUtil.convertGameRequest(ctx.channel(),(MsgProtocol.MsgRequest)s);
+					//头文件处理
+					handlerDispatcher.headMsgHandler(head,ctx.channel());
+					//添加消息到处理队列
 					handlerDispatcher.getMainMessageQueueHandler().addMessage(gameRequest);
 
-					//todo: test
-					MsgProtocol.MsgResponse.Builder builder = MsgProtocol.MsgResponse.newBuilder();
-					MsgProtocol.Content.Builder content_builder = MsgProtocol.Content.newBuilder();
-					builder.setId("res: " + id);
-					content_builder.setBody("res: " + content.getBody());
-					builder.setContent(content_builder);
-					MsgProtocol.MsgResponse response = builder.build();
-					int len = response.toByteArray().length;
-					System.out.println("mainmasterserverhandler: response length : "+len);
-//					byte[] result = new byte[4+len];
-//					result[0] = (byte)((len >> 24) & 0xFF);
-//					result[1] = (byte)((len >> 16) & 0xFF);
-//					result[2] = (byte)((len >> 8) & 0xFF);
-//					result[3] = (byte)(len & 0xFF);
-
-//					ctx.channel().write(result);
-//					ctx.channel().write(builder.build().toByteArray());
-//					ctx.channel().flush();
-					ctx.channel().writeAndFlush(builder.build());
+//					//todo: test
+//					MsgProtocol.MsgResponse.Builder builder = MsgProtocol.MsgResponse.newBuilder();
+//					MsgProtocol.Head.Builder head_builder = MsgProtocol.Head.newBuilder();
+//					MsgProtocol.Content.Builder content_builder = MsgProtocol.Content.newBuilder();
+//					head_builder.setSrcID("id_" + head.getSrcID());
+//					builder.setHead(head_builder.build());
+//					content_builder.setMsg(1, MsgProtocol.Msg.newBuilder().build());
+//					builder.setContent(content_builder);
+//					MsgProtocol.MsgResponse response = builder.build();
+//					int len = response.toByteArray().length;
+//					System.out.println("mainmasterserverhandler: response length : "+len);
+////					byte[] result = new byte[4+len];
+////					result[0] = (byte)((len >> 24) & 0xFF);
+////					result[1] = (byte)((len >> 16) & 0xFF);
+////					result[2] = (byte)((len >> 8) & 0xFF);
+////					result[3] = (byte)(len & 0xFF);
+//
+////					ctx.channel().write(result);
+////					ctx.channel().write(builder.build().toByteArray());
+////					ctx.channel().flush();
+//					ctx.channel().writeAndFlush(builder.build());
 				}else{
 					logger.error("resquest data not a protobuf type...");
 				}
@@ -92,7 +97,7 @@ public class MainMasterServerHandler extends SimpleChannelInboundHandler<Object>
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		logger.error("[" + ctx.channel().remoteAddress()+"] has an exception……");
 //		cause.printStackTrace();
-		handlerDispatcher.getMainMessageQueueHandler().removeMessageQueue(ctx.channel());
+		handlerDispatcher.removeMainChannelInfo(ctx.channel());
 		ctx.close();
 	}
 
@@ -104,7 +109,7 @@ public class MainMasterServerHandler extends SimpleChannelInboundHandler<Object>
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		logger.info("[" + ctx.channel().remoteAddress() + "] : is inactive......");
-		handlerDispatcher.getMainMessageQueueHandler().removeMessageQueue(ctx.channel());
+		handlerDispatcher.removeMainChannelInfo(ctx.channel());
 		System.out.println("[" + ctx.channel().remoteAddress() + "] : is inactive......");
 		ctx.close();
 	}

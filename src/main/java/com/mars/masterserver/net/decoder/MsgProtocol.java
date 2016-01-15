@@ -8,34 +8,377 @@ public final class MsgProtocol {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  /**
+   * Protobuf enum {@code com.mars.masterserver.net.decoder.SRCType}
+   */
+  public enum SRCType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNITYC = 1;</code>
+     */
+    UNITYC(0, 1),
+    /**
+     * <code>APPC = 2;</code>
+     */
+    APPC(1, 2),
+    /**
+     * <code>SIM = 3;</code>
+     */
+    SIM(2, 3),
+    /**
+     * <code>SERVER = 4;</code>
+     */
+    SERVER(3, 4),
+    ;
+
+    /**
+     * <code>UNITYC = 1;</code>
+     */
+    public static final int UNITYC_VALUE = 1;
+    /**
+     * <code>APPC = 2;</code>
+     */
+    public static final int APPC_VALUE = 2;
+    /**
+     * <code>SIM = 3;</code>
+     */
+    public static final int SIM_VALUE = 3;
+    /**
+     * <code>SERVER = 4;</code>
+     */
+    public static final int SERVER_VALUE = 4;
+
+
+    public final int getNumber() { return value; }
+
+    public static SRCType valueOf(int value) {
+      switch (value) {
+        case 1: return UNITYC;
+        case 2: return APPC;
+        case 3: return SIM;
+        case 4: return SERVER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SRCType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<SRCType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SRCType>() {
+            public SRCType findValueByNumber(int number) {
+              return SRCType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final SRCType[] VALUES = values();
+
+    public static SRCType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private SRCType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.mars.masterserver.net.decoder.SRCType)
+  }
+
+  /**
+   * Protobuf enum {@code com.mars.masterserver.net.decoder.DSTType}
+   */
+  public enum DSTType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SER = 1;</code>
+     */
+    SER(0, 1),
+    /**
+     * <code>CLIENT = 2;</code>
+     *
+     * <pre>
+     *只有该项，dstIDs不为空
+     * </pre>
+     */
+    CLIENT(1, 2),
+    /**
+     * <code>CLIENTS = 3;</code>
+     */
+    CLIENTS(2, 3),
+    /**
+     * <code>CAndS = 4;</code>
+     */
+    CAndS(3, 4),
+    ;
+
+    /**
+     * <code>SER = 1;</code>
+     */
+    public static final int SER_VALUE = 1;
+    /**
+     * <code>CLIENT = 2;</code>
+     *
+     * <pre>
+     *只有该项，dstIDs不为空
+     * </pre>
+     */
+    public static final int CLIENT_VALUE = 2;
+    /**
+     * <code>CLIENTS = 3;</code>
+     */
+    public static final int CLIENTS_VALUE = 3;
+    /**
+     * <code>CAndS = 4;</code>
+     */
+    public static final int CAndS_VALUE = 4;
+
+
+    public final int getNumber() { return value; }
+
+    public static DSTType valueOf(int value) {
+      switch (value) {
+        case 1: return SER;
+        case 2: return CLIENT;
+        case 3: return CLIENTS;
+        case 4: return CAndS;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DSTType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<DSTType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DSTType>() {
+            public DSTType findValueByNumber(int number) {
+              return DSTType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final DSTType[] VALUES = values();
+
+    public static DSTType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private DSTType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.mars.masterserver.net.decoder.DSTType)
+  }
+
+  /**
+   * Protobuf enum {@code com.mars.masterserver.net.decoder.MsgType}
+   */
+  public enum MsgType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>AssetLoad = 1;</code>
+     */
+    AssetLoad(0, 1),
+    /**
+     * <code>AssetUpload = 2;</code>
+     */
+    AssetUpload(1, 2),
+    /**
+     * <code>GameObjectAdd = 3;</code>
+     */
+    GameObjectAdd(2, 3),
+    /**
+     * <code>GameObjectRemove = 4;</code>
+     */
+    GameObjectRemove(3, 4),
+    /**
+     * <code>Control = 5;</code>
+     */
+    Control(4, 5),
+    /**
+     * <code>Command = 6;</code>
+     */
+    Command(5, 6),
+    /**
+     * <code>StateTransfer = 7;</code>
+     */
+    StateTransfer(6, 7),
+    /**
+     * <code>Environment = 8;</code>
+     */
+    Environment(7, 8),
+    ;
+
+    /**
+     * <code>AssetLoad = 1;</code>
+     */
+    public static final int AssetLoad_VALUE = 1;
+    /**
+     * <code>AssetUpload = 2;</code>
+     */
+    public static final int AssetUpload_VALUE = 2;
+    /**
+     * <code>GameObjectAdd = 3;</code>
+     */
+    public static final int GameObjectAdd_VALUE = 3;
+    /**
+     * <code>GameObjectRemove = 4;</code>
+     */
+    public static final int GameObjectRemove_VALUE = 4;
+    /**
+     * <code>Control = 5;</code>
+     */
+    public static final int Control_VALUE = 5;
+    /**
+     * <code>Command = 6;</code>
+     */
+    public static final int Command_VALUE = 6;
+    /**
+     * <code>StateTransfer = 7;</code>
+     */
+    public static final int StateTransfer_VALUE = 7;
+    /**
+     * <code>Environment = 8;</code>
+     */
+    public static final int Environment_VALUE = 8;
+
+
+    public final int getNumber() { return value; }
+
+    public static MsgType valueOf(int value) {
+      switch (value) {
+        case 1: return AssetLoad;
+        case 2: return AssetUpload;
+        case 3: return GameObjectAdd;
+        case 4: return GameObjectRemove;
+        case 5: return Control;
+        case 6: return Command;
+        case 7: return StateTransfer;
+        case 8: return Environment;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MsgType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<MsgType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
+            public MsgType findValueByNumber(int number) {
+              return MsgType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final MsgType[] VALUES = values();
+
+    public static MsgType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private MsgType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.mars.masterserver.net.decoder.MsgType)
+  }
+
   public interface MsgRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.mars.masterserver.net.decoder.MsgRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    boolean hasId();
+    boolean hasHead();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    java.lang.String getId();
+    com.mars.masterserver.net.decoder.MsgProtocol.Head getHead();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder();
 
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     boolean hasContent();
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     com.mars.masterserver.net.decoder.MsgProtocol.Content getContent();
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder();
   }
@@ -92,9 +435,16 @@ public final class MsgProtocol {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = head_.toBuilder();
+              }
+              head_ = input.readMessage(com.mars.masterserver.net.decoder.MsgProtocol.Head.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(head_);
+                head_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
-              id_ = bs;
               break;
             }
             case 18: {
@@ -150,71 +500,50 @@ public final class MsgProtocol {
     }
 
     private int bitField0_;
-    public static final int ID_FIELD_NUMBER = 1;
-    private java.lang.Object id_;
+    public static final int HEAD_FIELD_NUMBER = 1;
+    private com.mars.masterserver.net.decoder.MsgProtocol.Head head_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public boolean hasId() {
+    public boolean hasHead() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          id_ = s;
-        }
-        return s;
-      }
+    public com.mars.masterserver.net.decoder.MsgProtocol.Head getHead() {
+      return head_;
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder() {
+      return head_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
     private com.mars.masterserver.net.decoder.MsgProtocol.Content content_;
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public boolean hasContent() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public com.mars.masterserver.net.decoder.MsgProtocol.Content getContent() {
       return content_;
     }
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder() {
       return content_;
     }
 
     private void initFields() {
-      id_ = "";
+      head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
       content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -223,6 +552,22 @@ public final class MsgProtocol {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasHead()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getHead().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getContent().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -231,7 +576,7 @@ public final class MsgProtocol {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getIdBytes());
+        output.writeMessage(1, head_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, content_);
@@ -247,7 +592,7 @@ public final class MsgProtocol {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getIdBytes());
+          .computeMessageSize(1, head_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -362,6 +707,7 @@ public final class MsgProtocol {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getHeadFieldBuilder();
           getContentFieldBuilder();
         }
       }
@@ -371,7 +717,11 @@ public final class MsgProtocol {
 
       public Builder clear() {
         super.clear();
-        id_ = "";
+        if (headBuilder_ == null) {
+          head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+        } else {
+          headBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (contentBuilder_ == null) {
           content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
@@ -410,7 +760,11 @@ public final class MsgProtocol {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.id_ = id_;
+        if (headBuilder_ == null) {
+          result.head_ = head_;
+        } else {
+          result.head_ = headBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -435,10 +789,8 @@ public final class MsgProtocol {
 
       public Builder mergeFrom(com.mars.masterserver.net.decoder.MsgProtocol.MsgRequest other) {
         if (other == com.mars.masterserver.net.decoder.MsgProtocol.MsgRequest.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          bitField0_ |= 0x00000001;
-          id_ = other.id_;
-          onChanged();
+        if (other.hasHead()) {
+          mergeHead(other.getHead());
         }
         if (other.hasContent()) {
           mergeContent(other.getContent());
@@ -448,6 +800,22 @@ public final class MsgProtocol {
       }
 
       public final boolean isInitialized() {
+        if (!hasHead()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        if (!getHead().isInitialized()) {
+          
+          return false;
+        }
+        if (!getContent().isInitialized()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -470,93 +838,133 @@ public final class MsgProtocol {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private com.mars.masterserver.net.decoder.MsgProtocol.Head head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder> headBuilder_;
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public boolean hasId() {
+      public boolean hasHead() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            id_ = s;
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head getHead() {
+        if (headBuilder_ == null) {
+          return head_;
+        } else {
+          return headBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder setHead(com.mars.masterserver.net.decoder.MsgProtocol.Head value) {
+        if (headBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
-          return s;
+          head_ = value;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          headBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>optional string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string id = 1;</code>
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        id_ = value;
-        onChanged();
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public Builder clearId() {
+      public Builder setHead(
+          com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder builderForValue) {
+        if (headBuilder_ == null) {
+          head_ = builderForValue.build();
+          onChanged();
+        } else {
+          headBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder mergeHead(com.mars.masterserver.net.decoder.MsgProtocol.Head value) {
+        if (headBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              head_ != com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance()) {
+            head_ =
+              com.mars.masterserver.net.decoder.MsgProtocol.Head.newBuilder(head_).mergeFrom(value).buildPartial();
+          } else {
+            head_ = value;
+          }
+          onChanged();
+        } else {
+          headBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder clearHead() {
+        if (headBuilder_ == null) {
+          head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+          onChanged();
+        } else {
+          headBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = getDefaultInstance().getId();
-        onChanged();
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        id_ = value;
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder getHeadBuilder() {
+        bitField0_ |= 0x00000001;
         onChanged();
-        return this;
+        return getHeadFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder() {
+        if (headBuilder_ != null) {
+          return headBuilder_.getMessageOrBuilder();
+        } else {
+          return head_;
+        }
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder> 
+          getHeadFieldBuilder() {
+        if (headBuilder_ == null) {
+          headBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder>(
+                  getHead(),
+                  getParentForChildren(),
+                  isClean());
+          head_ = null;
+        }
+        return headBuilder_;
       }
 
       private com.mars.masterserver.net.decoder.MsgProtocol.Content content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.mars.masterserver.net.decoder.MsgProtocol.Content, com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder, com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder> contentBuilder_;
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public boolean hasContent() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.Content getContent() {
         if (contentBuilder_ == null) {
@@ -566,7 +974,7 @@ public final class MsgProtocol {
         }
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder setContent(com.mars.masterserver.net.decoder.MsgProtocol.Content value) {
         if (contentBuilder_ == null) {
@@ -582,7 +990,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder setContent(
           com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder builderForValue) {
@@ -596,7 +1004,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder mergeContent(com.mars.masterserver.net.decoder.MsgProtocol.Content value) {
         if (contentBuilder_ == null) {
@@ -615,7 +1023,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder clearContent() {
         if (contentBuilder_ == null) {
@@ -628,7 +1036,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder getContentBuilder() {
         bitField0_ |= 0x00000002;
@@ -636,7 +1044,7 @@ public final class MsgProtocol {
         return getContentFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder() {
         if (contentBuilder_ != null) {
@@ -646,7 +1054,7 @@ public final class MsgProtocol {
         }
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.mars.masterserver.net.decoder.MsgProtocol.Content, com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder, com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder> 
@@ -678,29 +1086,28 @@ public final class MsgProtocol {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    boolean hasId();
+    boolean hasHead();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    java.lang.String getId();
+    com.mars.masterserver.net.decoder.MsgProtocol.Head getHead();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder();
 
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     boolean hasContent();
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     com.mars.masterserver.net.decoder.MsgProtocol.Content getContent();
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder();
   }
@@ -757,9 +1164,16 @@ public final class MsgProtocol {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = head_.toBuilder();
+              }
+              head_ = input.readMessage(com.mars.masterserver.net.decoder.MsgProtocol.Head.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(head_);
+                head_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
-              id_ = bs;
               break;
             }
             case 18: {
@@ -815,71 +1229,50 @@ public final class MsgProtocol {
     }
 
     private int bitField0_;
-    public static final int ID_FIELD_NUMBER = 1;
-    private java.lang.Object id_;
+    public static final int HEAD_FIELD_NUMBER = 1;
+    private com.mars.masterserver.net.decoder.MsgProtocol.Head head_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public boolean hasId() {
+    public boolean hasHead() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          id_ = s;
-        }
-        return s;
-      }
+    public com.mars.masterserver.net.decoder.MsgProtocol.Head getHead() {
+      return head_;
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder() {
+      return head_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
     private com.mars.masterserver.net.decoder.MsgProtocol.Content content_;
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public boolean hasContent() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public com.mars.masterserver.net.decoder.MsgProtocol.Content getContent() {
       return content_;
     }
     /**
-     * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+     * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
      */
     public com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder() {
       return content_;
     }
 
     private void initFields() {
-      id_ = "";
+      head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
       content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -888,6 +1281,22 @@ public final class MsgProtocol {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasHead()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasContent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getHead().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getContent().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -896,7 +1305,7 @@ public final class MsgProtocol {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getIdBytes());
+        output.writeMessage(1, head_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, content_);
@@ -912,7 +1321,7 @@ public final class MsgProtocol {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getIdBytes());
+          .computeMessageSize(1, head_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1027,6 +1436,7 @@ public final class MsgProtocol {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getHeadFieldBuilder();
           getContentFieldBuilder();
         }
       }
@@ -1036,7 +1446,11 @@ public final class MsgProtocol {
 
       public Builder clear() {
         super.clear();
-        id_ = "";
+        if (headBuilder_ == null) {
+          head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+        } else {
+          headBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (contentBuilder_ == null) {
           content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
@@ -1075,7 +1489,11 @@ public final class MsgProtocol {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.id_ = id_;
+        if (headBuilder_ == null) {
+          result.head_ = head_;
+        } else {
+          result.head_ = headBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -1100,10 +1518,8 @@ public final class MsgProtocol {
 
       public Builder mergeFrom(com.mars.masterserver.net.decoder.MsgProtocol.MsgResponse other) {
         if (other == com.mars.masterserver.net.decoder.MsgProtocol.MsgResponse.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          bitField0_ |= 0x00000001;
-          id_ = other.id_;
-          onChanged();
+        if (other.hasHead()) {
+          mergeHead(other.getHead());
         }
         if (other.hasContent()) {
           mergeContent(other.getContent());
@@ -1113,6 +1529,22 @@ public final class MsgProtocol {
       }
 
       public final boolean isInitialized() {
+        if (!hasHead()) {
+          
+          return false;
+        }
+        if (!hasContent()) {
+          
+          return false;
+        }
+        if (!getHead().isInitialized()) {
+          
+          return false;
+        }
+        if (!getContent().isInitialized()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -1135,93 +1567,133 @@ public final class MsgProtocol {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private com.mars.masterserver.net.decoder.MsgProtocol.Head head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder> headBuilder_;
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public boolean hasId() {
+      public boolean hasHead() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            id_ = s;
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head getHead() {
+        if (headBuilder_ == null) {
+          return head_;
+        } else {
+          return headBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder setHead(com.mars.masterserver.net.decoder.MsgProtocol.Head value) {
+        if (headBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
-          return s;
+          head_ = value;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          headBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>optional string id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string id = 1;</code>
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        id_ = value;
-        onChanged();
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public Builder clearId() {
+      public Builder setHead(
+          com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder builderForValue) {
+        if (headBuilder_ == null) {
+          head_ = builderForValue.build();
+          onChanged();
+        } else {
+          headBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder mergeHead(com.mars.masterserver.net.decoder.MsgProtocol.Head value) {
+        if (headBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              head_ != com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance()) {
+            head_ =
+              com.mars.masterserver.net.decoder.MsgProtocol.Head.newBuilder(head_).mergeFrom(value).buildPartial();
+          } else {
+            head_ = value;
+          }
+          onChanged();
+        } else {
+          headBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public Builder clearHead() {
+        if (headBuilder_ == null) {
+          head_ = com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+          onChanged();
+        } else {
+          headBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = getDefaultInstance().getId();
-        onChanged();
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
        */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        id_ = value;
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder getHeadBuilder() {
+        bitField0_ |= 0x00000001;
         onChanged();
-        return this;
+        return getHeadFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder getHeadOrBuilder() {
+        if (headBuilder_ != null) {
+          return headBuilder_.getMessageOrBuilder();
+        } else {
+          return head_;
+        }
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.Head head = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder> 
+          getHeadFieldBuilder() {
+        if (headBuilder_ == null) {
+          headBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.mars.masterserver.net.decoder.MsgProtocol.Head, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder, com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder>(
+                  getHead(),
+                  getParentForChildren(),
+                  isClean());
+          head_ = null;
+        }
+        return headBuilder_;
       }
 
       private com.mars.masterserver.net.decoder.MsgProtocol.Content content_ = com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.mars.masterserver.net.decoder.MsgProtocol.Content, com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder, com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder> contentBuilder_;
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public boolean hasContent() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.Content getContent() {
         if (contentBuilder_ == null) {
@@ -1231,7 +1703,7 @@ public final class MsgProtocol {
         }
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder setContent(com.mars.masterserver.net.decoder.MsgProtocol.Content value) {
         if (contentBuilder_ == null) {
@@ -1247,7 +1719,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder setContent(
           com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder builderForValue) {
@@ -1261,7 +1733,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder mergeContent(com.mars.masterserver.net.decoder.MsgProtocol.Content value) {
         if (contentBuilder_ == null) {
@@ -1280,7 +1752,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public Builder clearContent() {
         if (contentBuilder_ == null) {
@@ -1293,7 +1765,7 @@ public final class MsgProtocol {
         return this;
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder getContentBuilder() {
         bitField0_ |= 0x00000002;
@@ -1301,7 +1773,7 @@ public final class MsgProtocol {
         return getContentFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       public com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder getContentOrBuilder() {
         if (contentBuilder_ != null) {
@@ -1311,7 +1783,7 @@ public final class MsgProtocol {
         }
       }
       /**
-       * <code>optional .com.mars.masterserver.net.decoder.Content content = 2;</code>
+       * <code>required .com.mars.masterserver.net.decoder.Content content = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.mars.masterserver.net.decoder.MsgProtocol.Content, com.mars.masterserver.net.decoder.MsgProtocol.Content.Builder, com.mars.masterserver.net.decoder.MsgProtocol.ContentOrBuilder> 
@@ -1338,32 +1810,863 @@ public final class MsgProtocol {
     // @@protoc_insertion_point(class_scope:com.mars.masterserver.net.decoder.MsgResponse)
   }
 
+  public interface HeadOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.mars.masterserver.net.decoder.Head)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    boolean hasSrcID();
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    java.lang.String getSrcID();
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSrcIDBytes();
+
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+     */
+    boolean hasSrcType();
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+     */
+    com.mars.masterserver.net.decoder.MsgProtocol.SRCType getSrcType();
+
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    com.google.protobuf.ProtocolStringList
+        getDstIDsList();
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    int getDstIDsCount();
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    java.lang.String getDstIDs(int index);
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getDstIDsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code com.mars.masterserver.net.decoder.Head}
+   */
+  public static final class Head extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.mars.masterserver.net.decoder.Head)
+      HeadOrBuilder {
+    // Use Head.newBuilder() to construct.
+    private Head(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Head(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Head defaultInstance;
+    public static Head getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Head getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Head(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              srcID_ = bs;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              com.mars.masterserver.net.decoder.MsgProtocol.SRCType value = com.mars.masterserver.net.decoder.MsgProtocol.SRCType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                srcType_ = value;
+              }
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                dstIDs_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              dstIDs_.add(bs);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          dstIDs_ = dstIDs_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Head_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Head_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.mars.masterserver.net.decoder.MsgProtocol.Head.class, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Head> PARSER =
+        new com.google.protobuf.AbstractParser<Head>() {
+      public Head parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Head(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Head> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int SRCID_FIELD_NUMBER = 1;
+    private java.lang.Object srcID_;
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    public boolean hasSrcID() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    public java.lang.String getSrcID() {
+      java.lang.Object ref = srcID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          srcID_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string srcID = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSrcIDBytes() {
+      java.lang.Object ref = srcID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        srcID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SRCTYPE_FIELD_NUMBER = 2;
+    private com.mars.masterserver.net.decoder.MsgProtocol.SRCType srcType_;
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+     */
+    public boolean hasSrcType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+     */
+    public com.mars.masterserver.net.decoder.MsgProtocol.SRCType getSrcType() {
+      return srcType_;
+    }
+
+    public static final int DSTIDS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList dstIDs_;
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDstIDsList() {
+      return dstIDs_;
+    }
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    public int getDstIDsCount() {
+      return dstIDs_.size();
+    }
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    public java.lang.String getDstIDs(int index) {
+      return dstIDs_.get(index);
+    }
+    /**
+     * <code>repeated string dstIDs = 4;</code>
+     *
+     * <pre>
+     *	required DSTType dstType = 3;
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getDstIDsBytes(int index) {
+      return dstIDs_.getByteString(index);
+    }
+
+    private void initFields() {
+      srcID_ = "";
+      srcType_ = com.mars.masterserver.net.decoder.MsgProtocol.SRCType.UNITYC;
+      dstIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasSrcID()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSrcType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getSrcIDBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeEnum(2, srcType_.getNumber());
+      }
+      for (int i = 0; i < dstIDs_.size(); i++) {
+        output.writeBytes(4, dstIDs_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getSrcIDBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, srcType_.getNumber());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < dstIDs_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(dstIDs_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getDstIDsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Head parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.mars.masterserver.net.decoder.MsgProtocol.Head prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.mars.masterserver.net.decoder.Head}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.mars.masterserver.net.decoder.Head)
+        com.mars.masterserver.net.decoder.MsgProtocol.HeadOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Head_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Head_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.mars.masterserver.net.decoder.MsgProtocol.Head.class, com.mars.masterserver.net.decoder.MsgProtocol.Head.Builder.class);
+      }
+
+      // Construct using com.mars.masterserver.net.decoder.MsgProtocol.Head.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        srcID_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        srcType_ = com.mars.masterserver.net.decoder.MsgProtocol.SRCType.UNITYC;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dstIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Head_descriptor;
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head getDefaultInstanceForType() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance();
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head build() {
+        com.mars.masterserver.net.decoder.MsgProtocol.Head result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Head buildPartial() {
+        com.mars.masterserver.net.decoder.MsgProtocol.Head result = new com.mars.masterserver.net.decoder.MsgProtocol.Head(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.srcID_ = srcID_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.srcType_ = srcType_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          dstIDs_ = dstIDs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.dstIDs_ = dstIDs_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.mars.masterserver.net.decoder.MsgProtocol.Head) {
+          return mergeFrom((com.mars.masterserver.net.decoder.MsgProtocol.Head)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.mars.masterserver.net.decoder.MsgProtocol.Head other) {
+        if (other == com.mars.masterserver.net.decoder.MsgProtocol.Head.getDefaultInstance()) return this;
+        if (other.hasSrcID()) {
+          bitField0_ |= 0x00000001;
+          srcID_ = other.srcID_;
+          onChanged();
+        }
+        if (other.hasSrcType()) {
+          setSrcType(other.getSrcType());
+        }
+        if (!other.dstIDs_.isEmpty()) {
+          if (dstIDs_.isEmpty()) {
+            dstIDs_ = other.dstIDs_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureDstIDsIsMutable();
+            dstIDs_.addAll(other.dstIDs_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasSrcID()) {
+          
+          return false;
+        }
+        if (!hasSrcType()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.mars.masterserver.net.decoder.MsgProtocol.Head parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.mars.masterserver.net.decoder.MsgProtocol.Head) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object srcID_ = "";
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public boolean hasSrcID() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public java.lang.String getSrcID() {
+        java.lang.Object ref = srcID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            srcID_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSrcIDBytes() {
+        java.lang.Object ref = srcID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          srcID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public Builder setSrcID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        srcID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public Builder clearSrcID() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        srcID_ = getDefaultInstance().getSrcID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string srcID = 1;</code>
+       */
+      public Builder setSrcIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        srcID_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.mars.masterserver.net.decoder.MsgProtocol.SRCType srcType_ = com.mars.masterserver.net.decoder.MsgProtocol.SRCType.UNITYC;
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+       */
+      public boolean hasSrcType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.SRCType getSrcType() {
+        return srcType_;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+       */
+      public Builder setSrcType(com.mars.masterserver.net.decoder.MsgProtocol.SRCType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        srcType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.SRCType srcType = 2;</code>
+       */
+      public Builder clearSrcType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        srcType_ = com.mars.masterserver.net.decoder.MsgProtocol.SRCType.UNITYC;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList dstIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureDstIDsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          dstIDs_ = new com.google.protobuf.LazyStringArrayList(dstIDs_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getDstIDsList() {
+        return dstIDs_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public int getDstIDsCount() {
+        return dstIDs_.size();
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public java.lang.String getDstIDs(int index) {
+        return dstIDs_.get(index);
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getDstIDsBytes(int index) {
+        return dstIDs_.getByteString(index);
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public Builder setDstIDs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDstIDsIsMutable();
+        dstIDs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public Builder addDstIDs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDstIDsIsMutable();
+        dstIDs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public Builder addAllDstIDs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureDstIDsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dstIDs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public Builder clearDstIDs() {
+        dstIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string dstIDs = 4;</code>
+       *
+       * <pre>
+       *	required DSTType dstType = 3;
+       * </pre>
+       */
+      public Builder addDstIDsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDstIDsIsMutable();
+        dstIDs_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.mars.masterserver.net.decoder.Head)
+    }
+
+    static {
+      defaultInstance = new Head(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.mars.masterserver.net.decoder.Head)
+  }
+
   public interface ContentOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.mars.masterserver.net.decoder.Content)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    boolean hasBody();
+    java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg> 
+        getMsgList();
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    java.lang.String getBody();
+    com.mars.masterserver.net.decoder.MsgProtocol.Msg getMsg(int index);
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getBodyBytes();
-
+    int getMsgCount();
     /**
-     * <code>optional bytes temp_body = 2;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    boolean hasTempBody();
+    java.util.List<? extends com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder> 
+        getMsgOrBuilderList();
     /**
-     * <code>optional bytes temp_body = 2;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    com.google.protobuf.ByteString getTempBody();
+    com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder getMsgOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.mars.masterserver.net.decoder.Content}
@@ -1418,14 +2721,11 @@ public final class MsgProtocol {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              body_ = bs;
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              tempBody_ = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                msg_ = new java.util.ArrayList<com.mars.masterserver.net.decoder.MsgProtocol.Msg>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              msg_.add(input.readMessage(com.mars.masterserver.net.decoder.MsgProtocol.Msg.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1436,6 +2736,9 @@ public final class MsgProtocol {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          msg_ = java.util.Collections.unmodifiableList(msg_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1467,67 +2770,43 @@ public final class MsgProtocol {
       return PARSER;
     }
 
-    private int bitField0_;
-    public static final int BODY_FIELD_NUMBER = 1;
-    private java.lang.Object body_;
+    public static final int MSG_FIELD_NUMBER = 1;
+    private java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg> msg_;
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    public boolean hasBody() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+    public java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg> getMsgList() {
+      return msg_;
     }
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    public java.lang.String getBody() {
-      java.lang.Object ref = body_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          body_ = s;
-        }
-        return s;
-      }
+    public java.util.List<? extends com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder> 
+        getMsgOrBuilderList() {
+      return msg_;
     }
     /**
-     * <code>optional string body = 1;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getBodyBytes() {
-      java.lang.Object ref = body_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        body_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TEMP_BODY_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString tempBody_;
-    /**
-     * <code>optional bytes temp_body = 2;</code>
-     */
-    public boolean hasTempBody() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    public int getMsgCount() {
+      return msg_.size();
     }
     /**
-     * <code>optional bytes temp_body = 2;</code>
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
      */
-    public com.google.protobuf.ByteString getTempBody() {
-      return tempBody_;
+    public com.mars.masterserver.net.decoder.MsgProtocol.Msg getMsg(int index) {
+      return msg_.get(index);
+    }
+    /**
+     * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+     */
+    public com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder getMsgOrBuilder(
+        int index) {
+      return msg_.get(index);
     }
 
     private void initFields() {
-      body_ = "";
-      tempBody_ = com.google.protobuf.ByteString.EMPTY;
+      msg_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1535,6 +2814,12 @@ public final class MsgProtocol {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getMsgCount(); i++) {
+        if (!getMsg(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1542,11 +2827,8 @@ public final class MsgProtocol {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getBodyBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, tempBody_);
+      for (int i = 0; i < msg_.size(); i++) {
+        output.writeMessage(1, msg_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1557,13 +2839,9 @@ public final class MsgProtocol {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      for (int i = 0; i < msg_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getBodyBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, tempBody_);
+          .computeMessageSize(1, msg_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1674,6 +2952,7 @@ public final class MsgProtocol {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getMsgFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1682,10 +2961,12 @@ public final class MsgProtocol {
 
       public Builder clear() {
         super.clear();
-        body_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        tempBody_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        if (msgBuilder_ == null) {
+          msg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          msgBuilder_.clear();
+        }
         return this;
       }
 
@@ -1713,16 +2994,15 @@ public final class MsgProtocol {
       public com.mars.masterserver.net.decoder.MsgProtocol.Content buildPartial() {
         com.mars.masterserver.net.decoder.MsgProtocol.Content result = new com.mars.masterserver.net.decoder.MsgProtocol.Content(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
+        if (msgBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            msg_ = java.util.Collections.unmodifiableList(msg_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.msg_ = msg_;
+        } else {
+          result.msg_ = msgBuilder_.build();
         }
-        result.body_ = body_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.tempBody_ = tempBody_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1738,19 +3018,43 @@ public final class MsgProtocol {
 
       public Builder mergeFrom(com.mars.masterserver.net.decoder.MsgProtocol.Content other) {
         if (other == com.mars.masterserver.net.decoder.MsgProtocol.Content.getDefaultInstance()) return this;
-        if (other.hasBody()) {
-          bitField0_ |= 0x00000001;
-          body_ = other.body_;
-          onChanged();
-        }
-        if (other.hasTempBody()) {
-          setTempBody(other.getTempBody());
+        if (msgBuilder_ == null) {
+          if (!other.msg_.isEmpty()) {
+            if (msg_.isEmpty()) {
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMsgIsMutable();
+              msg_.addAll(other.msg_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.msg_.isEmpty()) {
+            if (msgBuilder_.isEmpty()) {
+              msgBuilder_.dispose();
+              msgBuilder_ = null;
+              msg_ = other.msg_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              msgBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getMsgFieldBuilder() : null;
+            } else {
+              msgBuilder_.addAllMessages(other.msg_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        for (int i = 0; i < getMsgCount(); i++) {
+          if (!getMsg(i).isInitialized()) {
+            
+            return false;
+          }
+        }
         return true;
       }
 
@@ -1773,115 +3077,244 @@ public final class MsgProtocol {
       }
       private int bitField0_;
 
-      private java.lang.Object body_ = "";
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public boolean hasBody() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public java.lang.String getBody() {
-        java.lang.Object ref = body_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            body_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getBodyBytes() {
-        java.lang.Object ref = body_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          body_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public Builder setBody(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        body_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public Builder clearBody() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        body_ = getDefaultInstance().getBody();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string body = 1;</code>
-       */
-      public Builder setBodyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        body_ = value;
-        onChanged();
-        return this;
+      private java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg> msg_ =
+        java.util.Collections.emptyList();
+      private void ensureMsgIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          msg_ = new java.util.ArrayList<com.mars.masterserver.net.decoder.MsgProtocol.Msg>(msg_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
-      private com.google.protobuf.ByteString tempBody_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Msg, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder, com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder> msgBuilder_;
+
       /**
-       * <code>optional bytes temp_body = 2;</code>
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
        */
-      public boolean hasTempBody() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+      public java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg> getMsgList() {
+        if (msgBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(msg_);
+        } else {
+          return msgBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>optional bytes temp_body = 2;</code>
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
        */
-      public com.google.protobuf.ByteString getTempBody() {
-        return tempBody_;
+      public int getMsgCount() {
+        if (msgBuilder_ == null) {
+          return msg_.size();
+        } else {
+          return msgBuilder_.getCount();
+        }
       }
       /**
-       * <code>optional bytes temp_body = 2;</code>
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
        */
-      public Builder setTempBody(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        tempBody_ = value;
-        onChanged();
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg getMsg(int index) {
+        if (msgBuilder_ == null) {
+          return msg_.get(index);
+        } else {
+          return msgBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder setMsg(
+          int index, com.mars.masterserver.net.decoder.MsgProtocol.Msg value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.set(index, value);
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>optional bytes temp_body = 2;</code>
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
        */
-      public Builder clearTempBody() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        tempBody_ = getDefaultInstance().getTempBody();
-        onChanged();
+      public Builder setMsg(
+          int index, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder addMsg(com.mars.masterserver.net.decoder.MsgProtocol.Msg value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.add(value);
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder addMsg(
+          int index, com.mars.masterserver.net.decoder.MsgProtocol.Msg value) {
+        if (msgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMsgIsMutable();
+          msg_.add(index, value);
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder addMsg(
+          com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.add(builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder addMsg(
+          int index, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder builderForValue) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          msgBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder addAllMsg(
+          java.lang.Iterable<? extends com.mars.masterserver.net.decoder.MsgProtocol.Msg> values) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, msg_);
+          onChanged();
+        } else {
+          msgBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder clearMsg() {
+        if (msgBuilder_ == null) {
+          msg_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          msgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public Builder removeMsg(int index) {
+        if (msgBuilder_ == null) {
+          ensureMsgIsMutable();
+          msg_.remove(index);
+          onChanged();
+        } else {
+          msgBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder getMsgBuilder(
+          int index) {
+        return getMsgFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder getMsgOrBuilder(
+          int index) {
+        if (msgBuilder_ == null) {
+          return msg_.get(index);  } else {
+          return msgBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public java.util.List<? extends com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder> 
+           getMsgOrBuilderList() {
+        if (msgBuilder_ != null) {
+          return msgBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(msg_);
+        }
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder addMsgBuilder() {
+        return getMsgFieldBuilder().addBuilder(
+            com.mars.masterserver.net.decoder.MsgProtocol.Msg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder addMsgBuilder(
+          int index) {
+        return getMsgFieldBuilder().addBuilder(
+            index, com.mars.masterserver.net.decoder.MsgProtocol.Msg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.mars.masterserver.net.decoder.Msg msg = 1;</code>
+       */
+      public java.util.List<com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder> 
+           getMsgBuilderList() {
+        return getMsgFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.mars.masterserver.net.decoder.MsgProtocol.Msg, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder, com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder> 
+          getMsgFieldBuilder() {
+        if (msgBuilder_ == null) {
+          msgBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.mars.masterserver.net.decoder.MsgProtocol.Msg, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder, com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder>(
+                  msg_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        return msgBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.mars.masterserver.net.decoder.Content)
@@ -1895,6 +3328,666 @@ public final class MsgProtocol {
     // @@protoc_insertion_point(class_scope:com.mars.masterserver.net.decoder.Content)
   }
 
+  public interface MsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.mars.masterserver.net.decoder.Msg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+     */
+    com.mars.masterserver.net.decoder.MsgProtocol.MsgType getType();
+
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>required bytes body = 3;</code>
+     */
+    boolean hasBody();
+    /**
+     * <code>required bytes body = 3;</code>
+     */
+    com.google.protobuf.ByteString getBody();
+  }
+  /**
+   * Protobuf type {@code com.mars.masterserver.net.decoder.Msg}
+   */
+  public static final class Msg extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.mars.masterserver.net.decoder.Msg)
+      MsgOrBuilder {
+    // Use Msg.newBuilder() to construct.
+    private Msg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Msg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Msg defaultInstance;
+    public static Msg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Msg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Msg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+              com.mars.masterserver.net.decoder.MsgProtocol.MsgType value = com.mars.masterserver.net.decoder.MsgProtocol.MsgType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                type_ = value;
+              }
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              id_ = bs;
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              body_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Msg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Msg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.mars.masterserver.net.decoder.MsgProtocol.Msg.class, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Msg> PARSER =
+        new com.google.protobuf.AbstractParser<Msg>() {
+      public Msg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Msg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Msg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private com.mars.masterserver.net.decoder.MsgProtocol.MsgType type_;
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+     */
+    public com.mars.masterserver.net.decoder.MsgProtocol.MsgType getType() {
+      return type_;
+    }
+
+    public static final int ID_FIELD_NUMBER = 2;
+    private java.lang.Object id_;
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          id_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string id = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BODY_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString body_;
+    /**
+     * <code>required bytes body = 3;</code>
+     */
+    public boolean hasBody() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required bytes body = 3;</code>
+     */
+    public com.google.protobuf.ByteString getBody() {
+      return body_;
+    }
+
+    private void initFields() {
+      type_ = com.mars.masterserver.net.decoder.MsgProtocol.MsgType.AssetLoad;
+      id_ = "";
+      body_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBody()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, type_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, body_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, type_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, body_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mars.masterserver.net.decoder.MsgProtocol.Msg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.mars.masterserver.net.decoder.MsgProtocol.Msg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.mars.masterserver.net.decoder.Msg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.mars.masterserver.net.decoder.Msg)
+        com.mars.masterserver.net.decoder.MsgProtocol.MsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Msg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Msg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.mars.masterserver.net.decoder.MsgProtocol.Msg.class, com.mars.masterserver.net.decoder.MsgProtocol.Msg.Builder.class);
+      }
+
+      // Construct using com.mars.masterserver.net.decoder.MsgProtocol.Msg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        type_ = com.mars.masterserver.net.decoder.MsgProtocol.MsgType.AssetLoad;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        body_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.internal_static_com_mars_masterserver_net_decoder_Msg_descriptor;
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg getDefaultInstanceForType() {
+        return com.mars.masterserver.net.decoder.MsgProtocol.Msg.getDefaultInstance();
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg build() {
+        com.mars.masterserver.net.decoder.MsgProtocol.Msg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.mars.masterserver.net.decoder.MsgProtocol.Msg buildPartial() {
+        com.mars.masterserver.net.decoder.MsgProtocol.Msg result = new com.mars.masterserver.net.decoder.MsgProtocol.Msg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.body_ = body_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.mars.masterserver.net.decoder.MsgProtocol.Msg) {
+          return mergeFrom((com.mars.masterserver.net.decoder.MsgProtocol.Msg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.mars.masterserver.net.decoder.MsgProtocol.Msg other) {
+        if (other == com.mars.masterserver.net.decoder.MsgProtocol.Msg.getDefaultInstance()) return this;
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasId()) {
+          bitField0_ |= 0x00000002;
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.hasBody()) {
+          setBody(other.getBody());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasType()) {
+          
+          return false;
+        }
+        if (!hasBody()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.mars.masterserver.net.decoder.MsgProtocol.Msg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.mars.masterserver.net.decoder.MsgProtocol.Msg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.mars.masterserver.net.decoder.MsgProtocol.MsgType type_ = com.mars.masterserver.net.decoder.MsgProtocol.MsgType.AssetLoad;
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+       */
+      public com.mars.masterserver.net.decoder.MsgProtocol.MsgType getType() {
+        return type_;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+       */
+      public Builder setType(com.mars.masterserver.net.decoder.MsgProtocol.MsgType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .com.mars.masterserver.net.decoder.MsgType type = 1;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = com.mars.masterserver.net.decoder.MsgProtocol.MsgType.AssetLoad;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            id_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string id = 2;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes body = 3;</code>
+       */
+      public boolean hasBody() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bytes body = 3;</code>
+       */
+      public com.google.protobuf.ByteString getBody() {
+        return body_;
+      }
+      /**
+       * <code>required bytes body = 3;</code>
+       */
+      public Builder setBody(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        body_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes body = 3;</code>
+       */
+      public Builder clearBody() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        body_ = getDefaultInstance().getBody();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.mars.masterserver.net.decoder.Msg)
+    }
+
+    static {
+      defaultInstance = new Msg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.mars.masterserver.net.decoder.Msg)
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_mars_masterserver_net_decoder_MsgRequest_descriptor;
   private static
@@ -1906,10 +3999,20 @@ public final class MsgProtocol {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_mars_masterserver_net_decoder_MsgResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_mars_masterserver_net_decoder_Head_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_mars_masterserver_net_decoder_Head_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_mars_masterserver_net_decoder_Content_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_mars_masterserver_net_decoder_Content_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_mars_masterserver_net_decoder_Msg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_mars_masterserver_net_decoder_Msg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1921,12 +4024,26 @@ public final class MsgProtocol {
     java.lang.String[] descriptorData = {
       "\n3com/mars/masterserver/net/decoder/MsgP" +
       "rotocol.proto\022!com.mars.masterserver.net" +
-      ".decoder\"U\n\nMsgRequest\022\n\n\002id\030\001 \001(\t\022;\n\007co" +
-      "ntent\030\002 \001(\0132*.com.mars.masterserver.net." +
-      "decoder.Content\"V\n\013MsgResponse\022\n\n\002id\030\001 \001" +
-      "(\t\022;\n\007content\030\002 \001(\0132*.com.mars.masterser" +
-      "ver.net.decoder.Content\"*\n\007Content\022\014\n\004bo" +
-      "dy\030\001 \001(\t\022\021\n\ttemp_body\030\002 \001(\014"
+      ".decoder\"\200\001\n\nMsgRequest\0225\n\004head\030\001 \002(\0132\'." +
+      "com.mars.masterserver.net.decoder.Head\022;" +
+      "\n\007content\030\002 \002(\0132*.com.mars.masterserver." +
+      "net.decoder.Content\"\201\001\n\013MsgResponse\0225\n\004h" +
+      "ead\030\001 \002(\0132\'.com.mars.masterserver.net.de" +
+      "coder.Head\022;\n\007content\030\002 \002(\0132*.com.mars.m" +
+      "asterserver.net.decoder.Content\"b\n\004Head\022" +
+      "\r\n\005srcID\030\001 \002(\t\022;\n\007srcType\030\002 \002(\0162*.com.ma",
+      "rs.masterserver.net.decoder.SRCType\022\016\n\006d" +
+      "stIDs\030\004 \003(\t\">\n\007Content\0223\n\003msg\030\001 \003(\0132&.co" +
+      "m.mars.masterserver.net.decoder.Msg\"Y\n\003M" +
+      "sg\0228\n\004type\030\001 \002(\0162*.com.mars.masterserver" +
+      ".net.decoder.MsgType\022\n\n\002id\030\002 \001(\t\022\014\n\004body" +
+      "\030\003 \002(\014*4\n\007SRCType\022\n\n\006UNITYC\020\001\022\010\n\004APPC\020\002\022" +
+      "\007\n\003SIM\020\003\022\n\n\006SERVER\020\004*6\n\007DSTType\022\007\n\003SER\020\001" +
+      "\022\n\n\006CLIENT\020\002\022\013\n\007CLIENTS\020\003\022\t\n\005CAndS\020\004*\220\001\n" +
+      "\007MsgType\022\r\n\tAssetLoad\020\001\022\017\n\013AssetUpload\020\002" +
+      "\022\021\n\rGameObjectAdd\020\003\022\024\n\020GameObjectRemove\020",
+      "\004\022\013\n\007Control\020\005\022\013\n\007Command\020\006\022\021\n\rStateTran" +
+      "sfer\020\007\022\017\n\013Environment\020\010"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1945,19 +4062,31 @@ public final class MsgProtocol {
     internal_static_com_mars_masterserver_net_decoder_MsgRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_mars_masterserver_net_decoder_MsgRequest_descriptor,
-        new java.lang.String[] { "Id", "Content", });
+        new java.lang.String[] { "Head", "Content", });
     internal_static_com_mars_masterserver_net_decoder_MsgResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_mars_masterserver_net_decoder_MsgResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_mars_masterserver_net_decoder_MsgResponse_descriptor,
-        new java.lang.String[] { "Id", "Content", });
-    internal_static_com_mars_masterserver_net_decoder_Content_descriptor =
+        new java.lang.String[] { "Head", "Content", });
+    internal_static_com_mars_masterserver_net_decoder_Head_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_com_mars_masterserver_net_decoder_Head_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_mars_masterserver_net_decoder_Head_descriptor,
+        new java.lang.String[] { "SrcID", "SrcType", "DstIDs", });
+    internal_static_com_mars_masterserver_net_decoder_Content_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_mars_masterserver_net_decoder_Content_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_mars_masterserver_net_decoder_Content_descriptor,
-        new java.lang.String[] { "Body", "TempBody", });
+        new java.lang.String[] { "Msg", });
+    internal_static_com_mars_masterserver_net_decoder_Msg_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_mars_masterserver_net_decoder_Msg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_mars_masterserver_net_decoder_Msg_descriptor,
+        new java.lang.String[] { "Type", "Id", "Body", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -7,13 +7,13 @@ import com.mars.masterserver.core.handler.GameHandler;
 import com.mars.masterserver.core.handler.InitHandler;
 import com.mars.masterserver.core.handler.MainInitHandler;
 import com.mars.masterserver.net.decoder.MsgProtocol;
+import com.mars.masterserver.net.handler.ProtocolConverMsgUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Executor;
 
 /**
@@ -31,15 +31,21 @@ public class HandlerDispatcher implements Runnable {
 	private final ChannelGroup main_channels;
 	//控制端channel
 	private final ChannelGroup channels;
+	//对应不同的client类型进行channel存储
+	private final HashMap<MsgProtocol.SRCType,HashMap<String,Channel>> channels_hashmap;
+
     //存储接收的对应客户端信息
 	private MessageQueueHandler mainMessageQueueHandler,messageQueueHandler;
-
 
 
 	private static HandlerDispatcher instance = new HandlerDispatcher();
 	private HandlerDispatcher(){
 		main_channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 		channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+		channels_hashmap = new HashMap<MsgProtocol.SRCType, HashMap<String, Channel>>();
+		for(MsgProtocol.SRCType srcType: MsgProtocol.SRCType.values()){
+			channels_hashmap.put(srcType,new HashMap<String, Channel>());
+		}
 	}
 
 	public static HandlerDispatcher getInstance(){
@@ -125,11 +131,13 @@ public class HandlerDispatcher implements Runnable {
 			switch (clientType){
 				case MASTER:
 					handler = MainInitHandler.getInstance();
-					handler.setChannelGroup(channels);
+					handler.setChannelGroup(main_channels,channels);
+					handler.setChannelHashMap(channels_hashmap);
 					break;
 				default:
 					handler = InitHandler.getInstance();
-					handler.setChannelGroup(main_channels);
+					handler.setChannelGroup(main_channels,channels);
+					handler.setChannelHashMap(channels_hashmap);
 					break;
 			}
 
@@ -148,14 +156,16 @@ public class HandlerDispatcher implements Runnable {
 				System.out.println("逻辑处理时间过长，处理时间（s）："+diff);
 			}
 			//写入协议
-			for(GameResponse response:gameResponses){
-				writeAndFlushResponse(response);
-				response = null;
+			if(gameResponses!=null&&gameResponses.size()>0) {
+				for (GameResponse response : gameResponses) {
+					writeAndFlushResponse(response);
+					response = null;
+				}
+				gameResponses.clear();
+				gameResponses = null;
 			}
-
 			request = null;
-			gameResponses.clear();
-			gameResponses = null;
+
 
 		}
 	}
@@ -169,13 +179,8 @@ public class HandlerDispatcher implements Runnable {
 			switch (Settings.currentSerializationType) {
 				case PROTOBUF:
 					Channel channel = response.getChannel();
-					MsgProtocol.MsgResponse.Builder builder = MsgProtocol.MsgResponse.newBuilder();
-					MsgProtocol.Content.Builder content_builder = MsgProtocol.Content.newBuilder();
-					MsgProtocol.MsgResponse msgResponse = response.getMsgResponse();
-					content_builder.setBody(msgResponse.getContent().getBody());
-					builder.setId(msgResponse.getId());
-					builder.setContent(content_builder.build());
-					channel.writeAndFlush(builder.build());
+					MsgProtocol.MsgResponse msgResponse = ProtocolConverMsgUtil.convertMsgResponse(response);
+					channel.writeAndFlush(msgResponse);
 					break;
 				case JSON: //todo: 后续添加其他协议解析
 					break;
@@ -183,6 +188,61 @@ public class HandlerDispatcher implements Runnable {
 					break;
 			}
 		}
+	}
+
+	/**
+	 * 对没有存储ID的客户端进行分类存储
+	 * @param head
+	 * @param channel
+	 */
+	public void headMsgHandler(MsgProtocol.Head head, Channel channel){
+		if(head!=null){
+			MsgProtocol.SRCType currentSRCType = head.getSrcType();
+			HashMap<String,Channel> clientChannelHashMap = channels_hashmap.get(currentSRCType);
+			String srcID = head.getSrcID();
+			if(!clientChannelHashMap.containsKey(srcID)){
+				clientChannelHashMap.put(srcID,channel);
+			}
+		}
+	}
+
+	private void deleteChannelID(Channel channel){
+		for(Map.Entry<MsgProtocol.SRCType,HashMap<String,Channel>> entry: channels_hashmap.entrySet()){
+			HashMap<String,Channel> channel_id = entry.getValue();
+			List<String> delete_ids = new ArrayList<String>();
+			for(Map.Entry<String,Channel> entry1: channel_id.entrySet()){
+				Channel current = entry1.getValue();
+				if(current.equals(channel)){
+					delete_ids.add(entry1.getKey());
+				}
+			}
+			for(String id:delete_ids){
+				deleteChannelID(id);
+			}
+		}
+	}
+
+	private void deleteChannelID(MsgProtocol.SRCType srcType,String id){
+		HashMap<String,Channel> clientChannelHashMap = channels_hashmap.get(srcType);
+		clientChannelHashMap.remove(id);
+	}
+
+	private void deleteChannelID(String id){
+		for(Map.Entry<MsgProtocol.SRCType,HashMap<String,Channel>> entry: channels_hashmap.entrySet()){
+			HashMap channel_id = entry.getValue();
+			channel_id.remove(id);
+		}
+
+	}
+
+	public void removeChannelInfo(Channel channel){
+		messageQueueHandler.removeMessageQueue(channel);
+		deleteChannelID(channel);
+	}
+
+	public void removeMainChannelInfo(Channel channel){
+		mainMessageQueueHandler.removeMessageQueue(channel);
+		deleteChannelID(channel);
 	}
 
 	public void setMessageExecutor(Executor messageExecutor) {

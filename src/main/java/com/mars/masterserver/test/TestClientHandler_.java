@@ -29,8 +29,8 @@ public class TestClientHandler_ extends ChannelInboundHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object object) throws Exception {
 		System.out.println("TestClientHandler--channelRead0: is reading...");
 		MsgProtocol.MsgResponse msg = (MsgProtocol.MsgResponse)object;
-		String id = msg.getId();
-		MsgProtocol.Content content = msg.getContent();
-		System.out.println("[content]: id=" + id + "; body=" + content.getBody());
+//		String id = msg.getId();
+//		MsgProtocol.Content content = msg.getContent();
+//		System.out.println("[content]: id=" + id + "; body=" + content.getBody());
 	}
 }

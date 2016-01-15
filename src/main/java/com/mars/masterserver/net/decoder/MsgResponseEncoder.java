@@ -14,7 +14,7 @@ public class MsgResponseEncoder extends MessageToByteEncoder<MsgProtocol.MsgResp
 	protected  void encode(ChannelHandlerContext ctx, MsgProtocol.MsgResponse msg, ByteBuf out) throws Exception {
 
 		System.out.println("MsgResponseEncoder...");
-		System.out.println("MsgResponseEncoder-encode(): [id]:"+msg.getId()+" ; [content.body]: "+msg.getContent().getBody());
+		System.out.println("MsgResponseEncoder-encode(): [id]:"+msg.getHead()+" ; [content.body]: "+msg.getContent().getMsgList());
 //		ByteBuf bufferContent = Unpooled.buffer();
 //		bufferContent.writeInt(msg.toByteArray().length).writeBytes(msg.toByteArray());
 //		out.writeBytes(bufferContent);

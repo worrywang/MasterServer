@@ -1,16 +1,57 @@
 package com.mars.masterserver.net.decoder;
 
 message MsgRequest{
-    optional string id = 1;
-    optional Content content= 2;
+	required Head head  = 1;
+	required Content content = 2;
+	
 }
 
 message MsgResponse{
-    optional string id = 1;
-    optional Content content= 2;
+	required Head head  = 1;
+	required Content content = 2;
 }
 
+message Head{
+	required string srcID = 1;
+	required SRCType srcType = 2;
+	//	required DSTType dstType = 3;
+    repeated string dstIDs = 4;	
+}
+
+enum SRCType{
+	UNITYC = 1;
+	APPC = 2;
+	SIM = 3;
+	SERVER = 4;
+}
+
+enum DSTType{
+	SER = 1;
+	CLIENT = 2;//只有该项，dstIDs不为空
+	CLIENTS = 3; 
+	CAndS = 4;
+}
+
+
+
 message Content{
-    optional string body = 1;
-    optional bytes temp_body = 2;
+	repeated Msg msg=1;
+}
+
+message Msg{
+	required MsgType type = 1;
+	optional string id = 2;
+	required bytes body= 3;
+}
+
+enum MsgType{
+	AssetLoad = 1;
+	AssetUpload = 2;
+	GameObjectAdd = 3;
+	GameObjectRemove = 4;
+	Control = 5;
+	Command = 6;
+	StateTransfer = 7;
+	Environment = 8;
+	
 }

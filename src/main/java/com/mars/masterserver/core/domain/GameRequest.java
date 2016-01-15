@@ -1,8 +1,10 @@
 package com.mars.masterserver.core.domain;
 
+
 import com.mars.masterserver.net.decoder.MsgProtocol;
 import io.netty.channel.Channel;
 
+import java.util.List;
 import java.util.zip.GZIPInputStream;
 
 /**
@@ -10,18 +12,24 @@ import java.util.zip.GZIPInputStream;
  * Created by Administrator on 2015/12/23.
  */
 public class GameRequest {
-	private String id;
-	private String content;
+//	private String id;
+//private String content;
+	private Head head;
+	private List<Msg> body;
 	private Channel channel;
 
-	public GameRequest(Channel channel,MsgProtocol.MsgRequest msgRequest){
-		if(channel!=null&&msgRequest!=null){
+	public GameRequest(Channel channel,Head head,List<Msg> body){
+		if(channel!=null&&head!=null&&body!=null&&body.size()>0) {
 			//todo： 创建请求对象
+			this.head= head;
 			this.channel = channel;
-			this.id = msgRequest.getId();
-			this.content = msgRequest.getContent().getBody();
+			this.body = body;
 		}
 	}
+
+//	public GameRequest(Channel channel,Head head,Msg msg){
+//
+//	}
 
 	public Channel getChannel() {
 		return channel;
@@ -31,19 +39,43 @@ public class GameRequest {
 		this.channel = channel;
 	}
 
-	public String getContent() {
-		return content;
+//	public String getContent() {
+//		return content;
+//	}
+//
+//	public void setContent(String content) {
+//		this.content = content;
+//	}
+
+
+	public List<Msg> getBody() {
+		return body;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setBody(List<Msg> body) {
+		this.body = body;
 	}
 
-	public String getId() {
-		return id;
+	public void deleteBody(){
+		if(body!=null){
+			body.clear();
+			body = null;
+		}
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public Head getHead() {
+		return head;
 	}
+
+	public void setHead(Head head) {
+		this.head = head;
+	}
+
+	//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 }

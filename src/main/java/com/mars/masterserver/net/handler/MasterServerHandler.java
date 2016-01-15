@@ -44,10 +44,13 @@ public class MasterServerHandler extends SimpleChannelInboundHandler<Object>{
 		switch (Settings.currentSerializationType){
 			case PROTOBUF:
 				if(s instanceof MsgProtocol.MsgRequest){
-					String id = ((MsgProtocol.MsgRequest)s).getId();
+					MsgProtocol.Head head = ((MsgProtocol.MsgRequest)s).getHead();
 					MsgProtocol.Content content = ((MsgProtocol.MsgRequest)s).getContent();
-					System.out.println("[content]: id="+id+"; body="+content.getBody());
-					GameRequest gameRequest = new GameRequest(ctx.channel(),((MsgProtocol.MsgRequest)s));
+					System.out.println("[content]: id="+head.getSrcID()+"; body="+content.getMsgList().size());
+
+					GameRequest gameRequest = ProtocolConverMsgUtil.convertGameRequest(ctx.channel(), (MsgProtocol.MsgRequest) s);
+					//头文件处理
+					handlerDispatcher.headMsgHandler(head, ctx.channel());
 					//通知
 					handlerDispatcher.getMessageQueueHandler().addMessage(gameRequest);
 				}
@@ -67,7 +70,7 @@ public class MasterServerHandler extends SimpleChannelInboundHandler<Object>{
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		logger.error("[" + ctx.channel().remoteAddress() + "] 出异常……");
 //		cause.printStackTrace();
-		handlerDispatcher.getMessageQueueHandler().removeMessageQueue(ctx.channel());
+		handlerDispatcher.removeChannelInfo(ctx.channel());
 		ctx.close();
 	}
 
@@ -79,7 +82,7 @@ public class MasterServerHandler extends SimpleChannelInboundHandler<Object>{
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		logger.info("[" + ctx.channel().remoteAddress() + "] : is inactive......");
-		handlerDispatcher.getMessageQueueHandler().removeMessageQueue(ctx.channel());
+		handlerDispatcher.removeChannelInfo(ctx.channel());
 		System.out.println("[" + ctx.channel().remoteAddress() + "] : is inactive......");
 		ctx.close();
 	}

@@ -27,7 +27,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/net/handler/MasterServerHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClient.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClientHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClient_TCP.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestClient_TCP_App.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mars/masterserver/test/TestServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/Byte/ByteClient.java" charset="UTF-8" />

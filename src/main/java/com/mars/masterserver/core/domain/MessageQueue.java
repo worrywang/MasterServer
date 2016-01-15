@@ -20,7 +20,7 @@ public class MessageQueue {
 
 	public void printAll(){
 		for(GameRequest gameRequest:requestQueue){
-			System.out.println("[" + gameRequest.getId() + "]: " + gameRequest.getContent());
+			System.out.println("[" + gameRequest.getHead().toString() + "]: " + gameRequest.getBody().toString());
 		}
 		System.out.println("MessageQueue.printAll()--------------------------------------");
 	}

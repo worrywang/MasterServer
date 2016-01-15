@@ -95,13 +95,13 @@ public class ClientTest {
 						lastWriteFuture = ch.writeAndFlush(line + "\r\n");
 						break;
 					case PROTOBUF:
-						MsgProtocol.MsgRequest.Builder builder = MsgProtocol.MsgRequest.newBuilder();
-						String msg_id = "id_"+(int)(Math.random()*100);
-						MsgProtocol.Content.Builder content_builder = MsgProtocol.Content.newBuilder();
-						content_builder.setBody(line);
-						builder.setId(msg_id);
-						builder.setContent(content_builder.build());
-						lastWriteFuture = ch.writeAndFlush(builder.build());
+//						MsgProtocol.MsgRequest.Builder builder = MsgProtocol.MsgRequest.newBuilder();
+//						String msg_id = "id_"+(int)(Math.random()*100);
+//						MsgProtocol.Content.Builder content_builder = MsgProtocol.Content.newBuilder();
+//						content_builder.setBody(line);
+//						builder.setId(msg_id);
+//						builder.setContent(content_builder.build());
+//						lastWriteFuture = ch.writeAndFlush(builder.build());
 						break;
 					default:break;
 				}

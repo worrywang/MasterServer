@@ -12,9 +12,9 @@ public class TestClientHandler extends SimpleChannelInboundHandler<MsgProtocol.M
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, MsgProtocol.MsgResponse msg) throws Exception {
 		System.out.println("TestClientHandler--channelRead0: is reading...");
-		String id = msg.getId();
+		MsgProtocol.Head head = msg.getHead();
 		MsgProtocol.Content content = msg.getContent();
-		System.out.println("[content]: id=" + id + "; body=" + content.getBody());
+		System.out.println("[content]: id=" + head.toString() + "; body=" + content.getMsgList());
 	}
 
 	@Override
