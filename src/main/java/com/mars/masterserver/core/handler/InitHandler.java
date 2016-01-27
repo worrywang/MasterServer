@@ -27,14 +27,14 @@ public class InitHandler extends ServerMsgHandler{
 	public List<GameResponse> execute(GameRequest request) {
 		List<GameResponse> gameResponses;
 
-		//todo: 根据不同消息类型进行处理回复,GA,GR,CE回复给Sim，ControlEvent回复给个别view端
+		//todo: 根据不同消息类型进行处理回复,GA,GR,CE回复给Sim，CommandEvent回复给个别view端
 		//由于仿真端的信息要转发给所有客户端
 		List<Msg> msgList = request.getBody();
 		if(msgList!=null&&msgList.size()>0){
 			HashMap<Channel,GameResponse> gameResponseHashMap = new HashMap<Channel, GameResponse>();
 			for(Msg currentMsg:msgList){
 				switch (currentMsg.getMsgType()){
-					case Control: //指挥控制命令转发给所有Unity端
+					case Command: //指挥控制命令转发给所有Unity端
 						HashMap<String,Channel> app_client = channelHashMap.get(MsgProtocol.SRCType.UNITYC);
 						List<String> dstIDs = request.getHead().getDstIDs();
 						if(dstIDs!=null&&dstIDs.size()>0){
