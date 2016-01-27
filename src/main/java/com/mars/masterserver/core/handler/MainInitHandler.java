@@ -33,7 +33,7 @@ public class MainInitHandler extends ServerMsgHandler {
 			HashMap<Channel,GameResponse> gameResponseHashMap = new HashMap<Channel, GameResponse>();
 			for(Msg currentMsg:msgList){
 				switch (currentMsg.getMsgType()){
-					case Environment:
+					case Environment: //环境信息转发给所有APP端
 						HashMap<String,Channel> app_client = channelHashMap.get(MsgProtocol.SRCType.APPC);
 						for(Map.Entry<String,Channel> entry:app_client.entrySet()){
 							Channel ch = entry.getValue();
@@ -47,7 +47,7 @@ public class MainInitHandler extends ServerMsgHandler {
 							}
 						}
 						break;
-					case StateTransfer:
+					case StateTransfer: //状态迁移事件转发给所有客户端
 						for(Channel ch:channelGroup){
 							if(gameResponseHashMap.containsKey(ch)){
 								gameResponseHashMap.get(ch).addMsg(currentMsg);

@@ -34,7 +34,7 @@ public class InitHandler extends ServerMsgHandler{
 			HashMap<Channel,GameResponse> gameResponseHashMap = new HashMap<Channel, GameResponse>();
 			for(Msg currentMsg:msgList){
 				switch (currentMsg.getMsgType()){
-					case Control:
+					case Control: //指挥控制命令转发给所有Unity端
 						HashMap<String,Channel> app_client = channelHashMap.get(MsgProtocol.SRCType.UNITYC);
 						List<String> dstIDs = request.getHead().getDstIDs();
 						if(dstIDs!=null&&dstIDs.size()>0){
@@ -51,7 +51,7 @@ public class InitHandler extends ServerMsgHandler{
 							}
 						}
 						break;
-					default:
+					default: //默认所有消息转发给服务器端
 						for(Channel ch:mainChannelGroup){
 							if(gameResponseHashMap.containsKey(ch)){
 								gameResponseHashMap.get(ch).addMsg(currentMsg);

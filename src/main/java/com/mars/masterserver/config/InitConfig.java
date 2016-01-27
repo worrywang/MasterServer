@@ -7,7 +7,7 @@ public class InitConfig {
 //	public static boolean SSL = System.getProperty("ssl")!=null;
 public static boolean SSL = false;
 //	public static String HOST = System.getProperty("host", "127.0.0.1");
-public static String HOST = System.getProperty("host", "192.168.10.105");
+public static String HOST = System.getProperty("host", "192.168.10.104");
 
 	public static int TCP_PORT = Integer.parseInt(System.getProperty("port", "8088"));
 	public static int UDP_PORT = Integer.parseInt(System.getProperty("port","8089"));
